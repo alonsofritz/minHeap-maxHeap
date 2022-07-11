@@ -18,12 +18,12 @@ void swap(int *x, int *y)
 	*y = temp;
 }
 
-// A class for Min Heap
+// A class for max Heap
 class MaxHeap
 {
 	int *harr; // pointer to array of elements in heap
-	int capacity; // maximum possible size of min heap
-	int heap_size; // Current number of elements in min heap
+	int capacity; // maximum possible size of max heap
+	int heap_size; // Current number of elements in max heap
 public:
 	// Constructor
 	MaxHeap(int capacity);
@@ -45,7 +45,7 @@ public:
 	// Decreases key value of key at index i to new_val
 	void decreaseKey(int i, int new_val);
 
-	// Returns the minimum key (key at root) from min heap
+	// Returns the minimum key (key at root) from max heap
 	int getMin() { return harr[0]; }
 
 	// Deletes a key stored at index i
@@ -80,7 +80,7 @@ void MaxHeap::insertKey(int k)
 	int i = heap_size - 1;
 	harr[i] = k;
 
-	// Fix the min heap property if it is violated
+	// Fix the max heap property if it is violated
 	while (i != 0 && harr[parent(i)] < harr[i])
 	{
 	swap(&harr[parent(i)], &harr[i] );
@@ -100,7 +100,7 @@ void MaxHeap::decreaseKey(int i, int new_val)
 	}
 }
 
-// Method to remove minimum element (or root) from min heap
+// Method to remove maximum element (or root) from max heap
 int MaxHeap::extractMin()
 {
 	if (heap_size <= 0)
@@ -135,15 +135,17 @@ void MaxHeap::MaxHeapify(int i)
 {
 	int l = left(i);
 	int r = right(i);
-	int smallest = i;
-	if (l < heap_size && harr[l] < harr[i])
-		smallest = l;
-	if (r < heap_size && harr[r] < harr[smallest])
-		smallest = r;
-	if (smallest != i)
+
+	int largest = i;
+	
+    if (l < heap_size && harr[l] > harr[i])
+		largest = l;
+	if (r < heap_size && harr[r] > harr[largest])
+		largest = r;
+	if (largest != i)
 	{
-		swap(&harr[i], &harr[smallest]);
-		MaxHeapify(smallest);
+		swap(&harr[i], &harr[largest]);
+		MaxHeapify(largest);
 	}
 }
 
