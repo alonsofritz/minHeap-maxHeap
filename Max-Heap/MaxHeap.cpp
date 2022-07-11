@@ -83,7 +83,7 @@ void MaxHeap::insertKey(int k)
 	// Fix the max heap property if it is violated
 	while (i != 0 && harr[parent(i)] < harr[i])
 	{
-	swap(&harr[parent(i)], &harr[i] );
+	swap(&harr[i], &harr[parent(i)]);
 	i = parent(i);
 	}
 }
@@ -184,7 +184,7 @@ int main()
     csvFile.open("resultsMaxHeap.csv");
 
     const int numTests = 1;
-    const string path = "../Utils/Testes";
+    const string path = "../Utils/BasicTest";
 
     for (const auto & entry: fs::directory_iterator(path)) {
 
