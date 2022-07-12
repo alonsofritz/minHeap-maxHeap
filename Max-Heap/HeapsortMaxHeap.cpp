@@ -78,7 +78,7 @@ void heapSort(vector < int > & heapArray, int heapSize)
 	}
 
 	// Call printArray to see the state of the heap after MaxHeapify execution
-	//printArray(heapArray, heapSize);
+	// printArray(heapArray, heapSize);
   
     // One by one extract an element from heap
     for (int i = heapSize - 1; i > 0; i--) {
@@ -97,8 +97,8 @@ int main()
 	ofstream csvFile;
     csvFile.open("resultsHeapSortMaxHeap.csv");
 
-    const int numTests = 1;
-    const string path = "../Utils/BasicTest";
+    const int numTests = 10;
+    const string path = "../Utils/Testes";
 
     for (const auto & entry: fs::directory_iterator(path)) {
 

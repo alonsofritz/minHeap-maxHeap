@@ -96,8 +96,8 @@ int main()
 	ofstream csvFile;
     csvFile.open("resultsHeapSortMinHeap.csv");
 
-    const int numTests = 1;
-    const string path = "../Utils/BasicTest";
+    const int numTests = 10;
+    const string path = "../Utils/Testes";
 
     for (const auto & entry: fs::directory_iterator(path)) {
 
