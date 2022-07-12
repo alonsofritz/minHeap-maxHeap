@@ -1,6 +1,9 @@
 # Folders and Results
 */Conjuntos
 *.csv
+*.xlsx
+*.ods
+*.pdf
 
 # Prerequisites
 *.d
